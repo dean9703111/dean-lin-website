@@ -1201,8 +1201,20 @@ img {
 
     /* --- Hero --- */
     .hero {
-        padding: 5rem 1.25rem 3rem;
-        min-height: 100svh;
+        padding: 5rem 1.25rem 4rem;
+        /* 手機版改為 auto，避免內容被截斷 */
+        min-height: unset;
+        height: auto;
+        /* 保留 overflow: hidden 防裝飾圓圈溢出，但確保內容不被截斷 */
+        overflow: hidden;
+        /* 關鍵：給內容區善足夠的底部 padding 避免按鈕被截斷 */
+        padding-bottom: 5rem;
+    }
+
+    /* 確保按鈕區善具備足夠 z-index 可被點擊 */
+    .hero-cta {
+        position: relative;
+        z-index: 2;
     }
 
     .hero-container {
@@ -1437,7 +1449,10 @@ img {
     }
 
     .hero {
-        padding: 4.5rem 1rem 2.5rem;
+        padding: 4.5rem 1rem 5rem;
+        min-height: unset;
+        height: auto;
+        overflow: hidden;
     }
 
     .hero-image img {
