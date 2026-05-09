@@ -1281,18 +1281,39 @@ img {
         gap: 1.25rem;
     }
 
+    /* 擅長領域卡片：第一列 icon+標題，第二列說明文字 */
     .expertise-card {
         padding: 1.75rem 1.5rem;
-        display: flex;
-        align-items: flex-start;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+        column-gap: 1rem;
+        row-gap: 0.5rem;
         text-align: left;
-        gap: 1.25rem;
+        align-items: center;
     }
 
     .expertise-icon {
-        font-size: 2.25rem;
+        font-size: 2rem;
         margin-bottom: 0;
         flex-shrink: 0;
+        grid-column: 1;
+        grid-row: 1;
+        line-height: 1.2;
+    }
+
+    .expertise-card h3 {
+        grid-column: 2;
+        grid-row: 1;
+        margin-bottom: 0;
+        font-size: 1.1rem;
+        align-self: center;
+    }
+
+    .expertise-card p {
+        grid-column: 1 / -1;  /* 占滿全寬 */
+        grid-row: 2;
+        margin-top: 0.25rem;
     }
 
     /* --- Achievements: 3 columns compact --- */
@@ -1485,28 +1506,44 @@ img {
         gap: 1rem;
     }
 
+    /* 成就數字：第一列 數字+標題，第二列說明文字 */
     .achievement-item {
-        display: flex;
-        align-items: center;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+        column-gap: 1rem;
+        row-gap: 0.5rem;
         text-align: left;
-        gap: 1.25rem;
-        padding: 1.25rem;
-    }
-
-    .achievement-item p {
-        display: block;
-        font-size: 0.8rem;
+        padding: 1.25rem 1.5rem;
+        align-items: center;
     }
 
     .achievement-number {
         font-size: 2.5rem;
-        min-width: 80px;
+        min-width: unset;
         text-align: center;
+        grid-column: 1;
+        grid-row: 1;
+        margin-bottom: 0;
+        line-height: 1;
     }
 
     .achievement-label {
-        font-size: 0.9rem;
-        margin-bottom: 0.25rem;
+        font-size: 1rem;
+        margin-bottom: 0;
+        grid-column: 2;
+        grid-row: 1;
+        align-self: center;
+    }
+
+    .achievement-item p {
+        display: block;
+        font-size: 0.85rem;
+        grid-column: 1 / -1;  /* 占滿全寬 */
+        grid-row: 2;
+        margin-top: 0.25rem;
+        color: var(--text-light);
+        line-height: 1.6;
     }
 
     /* Gallery: 2 columns, smaller */
